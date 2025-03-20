@@ -42,7 +42,8 @@ class CheckingAccount(BankAccount):
         super().__init__(owner, balance)
 
     def withdraw(self, amount):
-        self._BankAccount__balance -= amount  # Не проверяет, достаточно ли средств
+        new = self.get_balance() - amount  # Не проверяет, достаточно ли средств
+        return new
 
 
 
@@ -53,12 +54,13 @@ savings_account = SavingsAccount("Андрей Лонгинов")
 savings_account.deposit(500)
 print(f"Баланс после депозита: {savings_account.get_balance()}")
 
-#savings_account.withdraw(100)
+#savings_account.withdraw(-100)
 #print(f"Баланс после снятия: {savings_account.get_balance()}")
 
 checking_account = CheckingAccount("Андрей Лонгинов", savings_account.get_balance()) # переносим баланс из savings в checking
-checking_account.withdraw(100)
-print(f"Баланс после снятия: {checking_account.get_balance()}")
+
+print(f"Баланс после снятия: {checking_account.withdraw(6000)}")
 
 savings_account.apply_interest()
 print(f"Баланс после начисления процентов: {savings_account.get_balance()}")
+

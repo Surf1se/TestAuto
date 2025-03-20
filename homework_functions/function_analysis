@@ -1,6 +1,0 @@
-range - функция  используется в multiplication_table и number_sum
-range(stop)  # создаёт последовательность чисел от 0 до stop (не включая stop).
-range(start, stop)  # создаёт последовательность чисел от start до stop (не включая stop).
-range(start, stop, step)  # создаёт последовательность чисел от start до stop (не включая stop) с шагом step.
-
-len - функция для получения длинны списка, используется в bubble_sort
